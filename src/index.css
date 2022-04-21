@@ -1,0 +1,106 @@
+@media only screen and (max-width: 768px) {
+    .main {
+      width: 100%;
+      overflow: hidden;
+    }
+    .pyramid {
+      height: 100%;
+      width: 30%;
+      position: absolute;
+      z-index: 99;
+      top: 0;
+      right: -40%;
+      background-color: #111;
+      overflow: hidden;
+      transition: all 2.5s ease-in-out;
+      display: none;
+    }
+    .pyramid.showPanel {
+      right: 0;
+      display: flex;
+    }
+    .pyramid.closePanel {
+      right: -40%;
+      display: none;
+    }
+  
+    .moneyListItem {
+      padding: 3px 0;
+      margin-bottom: 8px;
+      border-radius: 4px;
+      font-size: 15px;
+    }
+    .listItemNumber {
+      padding-left: 5px;
+    }
+    .timer {
+      width: 55px;
+      height: 55px;
+      font-size: 17px;
+      left: 30px;
+      font-weight: bold;
+    }
+    .question {
+      width: 90%;
+      padding: 15px 12px;
+      font-size: 16px;
+      border-radius: 8px;
+    }
+    .answer {
+      width: 40%;
+      font-size: 16px;
+      border-radius: 8px;
+      margin: 10px;
+      padding: 15px 0;
+    }
+    .yourEarn {
+      font-size: 20px;
+    }
+    .endButton{
+        padding: 9px 14px;
+        font-size: 17px;
+    }
+  }
+  
+  @media only screen and (max-width: 480px) {
+    .bottom {
+      padding-top: 20px;
+    }
+    .moneyListItem {
+      padding: 3px 0;
+      margin-bottom: 8px;
+      border-radius: 4px;
+      /* font-size: 11px; */
+    }
+    .pyramid.showPanel {
+      width: 40%;
+    }
+    .timer {
+      width: 50px;
+      height: 50px;
+      /* font-size: 15px; */
+    }
+    .question {
+      width: 90%;
+      padding: 13px 8px;
+      /* font-size: 14px; */
+      border-radius: 6px;
+    }
+    .answer {
+      width: 40%;
+      /* font-size: 14px; */
+      margin: 10px;
+      padding: 13px 0;
+    }
+    .startInput {
+      width: 60%;
+      /* font-size: 14px; */
+      padding: 15px;
+      font-weight: bold;
+    }
+    .startButton {
+      width: 60%;
+      /* font-size: 15px; */
+      padding: 14px;
+    }
+  }
