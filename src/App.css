@@ -98,6 +98,17 @@
 .answer.correct {
   animation: correct 3s ease forwards;
 }
+
+.answer.removeFocus{
+  background: linear-gradient(#0e0124, #22074d) !important;
+}
+
+.custom-end-text{
+  font-size: 45px;
+  text-shadow: 3px 3px 18px red;
+  margin-bottom: 2rem;
+  color: aqua;
+}
 @keyframes correct {
   0%,
   22%,

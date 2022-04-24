@@ -1,6 +1,6 @@
 import React from 'react'
 
-const End = ({earn,setQuestionNumber,setStop,setSelectedAnswer}) => {
+const End = ({earn,setQuestionNumber,setStop,setSelectedAnswer,questionNumber}) => {
 
     const handleClick=()=>{
         setStop(false)
@@ -9,7 +9,8 @@ const End = ({earn,setQuestionNumber,setStop,setSelectedAnswer}) => {
     }
     return (
         <div className='yourEarn'>
-            <h2 >You earned {earn} </h2>
+            {questionNumber > 15 && <h1 className="custom-end-text">Congratulations</h1>}
+            <h2>You earned {earn} </h2>
             <button className='endButton' onClick={handleClick}>Play again</button>
         </div>
     )

@@ -46,9 +46,9 @@ const App = () => {
       {user ? (
         <>
           <div className="main">
-            {stop ? (
+            {stop || questionNumber > 15? (
               <End earn={earn} setQuestionNumber={setQuestionNumber} 
-              setStop={setStop} setSelectedAnswer={setSelectedAnswer}/>
+              setStop={setStop} setSelectedAnswer={setSelectedAnswer} questionNumber={questionNumber}/>
             ) : (
               <>
                 <div className="top">

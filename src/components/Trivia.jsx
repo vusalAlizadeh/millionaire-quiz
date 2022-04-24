@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState ,useRef} from "react";
 import { data } from "./Data";
 import useSound from "use-sound";
 import correct from "../sounds/sounds_correct.mp3";
@@ -15,6 +15,8 @@ const Trivia = ({
   selectedAnswer,
   setSelectedAnswer
 }) => {
+ 
+
   const [letsPlay] = useSound(play);
   const [correctAnswer] = useSound(correct);
   const [wrongAnswer] = useSound(wrong);
@@ -36,6 +38,7 @@ const Trivia = ({
 
   useEffect(() => {
     setQuestion(data[questionNumber - 1]);
+   
   }, [questionNumber]);
 
   useEffect(() => {
@@ -44,36 +47,47 @@ const Trivia = ({
     });
   }, [questionNumber,waitAnswer])
 
+
+
+
   const handleClick = (a) => {
     setSelectedAnswer(a);
     setClassName("answer active");
     delay(2000, () => {
       setClassName(a.correct ? "answer correct" : "answer wrong");
-    });
 
-    delay(4000, () => {
-      if (a.correct) {
-        stop();
-        correctAnswer();
-        
-        delay(2000, () => {
-          setPyramidClassName("pyramid showPanel");
-          delay(1500, ()=>{
-            setSelectedAnswer(null)
-            setQuestionNumber((prev) => prev + 1);
-          })
-        });
-        delay(4500, () => {
-          setPyramidClassName("pyramid closePanel");
-        });
-      } else {
-        stop();
-        wrongAnswer();
-        delay(2000, () => {
-          setStop(true);
-        });
-      }
-    });
+
+
+
+      delay(1500, () => {
+        if (a.correct) {
+          stop();
+          correctAnswer();
+          
+          delay(2000, () => {
+            if(questionNumber <=15){
+              setPyramidClassName("pyramid showPanel");
+            }
+            delay(1500, ()=>{
+              setSelectedAnswer(null)
+              setQuestionNumber((prev) => prev + 1);
+              setClassName("answer removeFocus")
+            })
+          });
+          delay(4500, () => {
+            setPyramidClassName("pyramid closePanel");
+          });
+        } else {
+          stop();
+          wrongAnswer();
+          delay(2000, () => {
+            setStop(true);
+          });
+        }
+      });
+    })
+
+    
   };
 
   
@@ -88,6 +102,7 @@ const Trivia = ({
               key={index}
               className={selectedAnswer === a ? className : "answer"}
               onClick={() => handleClick(a)}
+             
             >
               {a.text}
             </div>
