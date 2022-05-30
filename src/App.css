@@ -91,6 +91,7 @@
   margin: 10px;
   padding: 16px 0;
 }
+
 .answer:hover,
 .answer.active {
   background: mediumblue;
@@ -99,8 +100,8 @@
   animation: correct 3s ease forwards;
 }
 
-.answer.removeFocus{
-  background: linear-gradient(#0e0124, #22074d) !important;
+.answer.deleteFocus {
+  background: linear-gradient(#0e0124, #22074d);
 }
 
 .custom-end-text{

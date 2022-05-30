@@ -37,14 +37,16 @@ const Trivia = ({
   }, [letsPlay]);
 
   useEffect(() => {
+  
     setQuestion(data[questionNumber - 1]);
-   
+  
   }, [questionNumber]);
 
   useEffect(() => {
     delay(3000, () => {
       waitAnswer();
     });
+   
   }, [questionNumber,waitAnswer])
 
 
@@ -56,9 +58,6 @@ const Trivia = ({
     delay(2000, () => {
       setClassName(a.correct ? "answer correct" : "answer wrong");
 
-
-
-
       delay(1500, () => {
         if (a.correct) {
           stop();
@@ -69,9 +68,10 @@ const Trivia = ({
               setPyramidClassName("pyramid showPanel");
             }
             delay(1500, ()=>{
-              setSelectedAnswer(null)
+              setClassName("answer deleteFocus");
+              setSelectedAnswer(null);
               setQuestionNumber((prev) => prev + 1);
-              setClassName("answer removeFocus")
+              
             })
           });
           delay(4500, () => {
